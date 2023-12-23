@@ -24,7 +24,8 @@ public class PipeScript : MonoBehaviour
 
     private void score()
     {
-        if(!alreadyScored && scoreZone >= transform.position.x){
+        if(!logic.gameOver && !alreadyScored && 
+            scoreZone >= transform.position.x){
             alreadyScored = true;
             logic.addScore();
         }

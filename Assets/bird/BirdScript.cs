@@ -23,9 +23,8 @@ public class BirdScript : MonoBehaviour
             logic.gameOver();
 
         if (isRotating)
-        {
-            RotateBack();
-        }
+            rotateBack();
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -40,7 +39,7 @@ public class BirdScript : MonoBehaviour
         isRotating = true;
     }
 
-    private void RotateBack()
+    private void rotateBack()
     {
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), Time.deltaTime * 5);
 

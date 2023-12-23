@@ -5,7 +5,7 @@ using UnityEngine;
 public class BirdScript : MonoBehaviour
 {
     public Rigidbody2D birdRigidBody;
-    public float jumpForce = 10;
+    public float jumpForce = 9;
     private LogicManager logic;
     private bool isRotating = false;
 
@@ -24,7 +24,9 @@ public class BirdScript : MonoBehaviour
 
         if (isRotating)
             rotateBack();
-        
+
+        if (birdRigidBody.velocity.y < 0 && !isRotating)
+            rotateDown();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -35,7 +37,7 @@ public class BirdScript : MonoBehaviour
     private void jump()
     {
         birdRigidBody.velocity = Vector2.up * jumpForce;
-        transform.rotation = Quaternion.Euler(0, 0, 45);
+        transform.rotation = Quaternion.Euler(0, 0, 30);
         isRotating = true;
     }
 
@@ -48,5 +50,10 @@ public class BirdScript : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0);
             isRotating = false;
         }
+    }
+
+    private void rotateDown()
+    {
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, -30), Time.deltaTime * 5);
     }
 }

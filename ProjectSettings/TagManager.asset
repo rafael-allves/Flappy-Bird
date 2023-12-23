@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Logic
+  - menu_cloud_top
+  - menu_cloud_bottom
   layers:
   - Default
   - TransparentFX

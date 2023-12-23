@@ -16,7 +16,13 @@ public class BirdScript : MonoBehaviour
 
     void Update()
     {
-        if(!logic.gameOver && Input.GetKeyDown(KeyCode.Space))
+        if(!logic.isGameOver && Input.GetKeyDown(KeyCode.Space))
             birdRigidBody.velocity = Vector2.up * jumpForce;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        logic.gameOver();
+    }
+
 }

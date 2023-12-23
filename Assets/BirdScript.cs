@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BirdScript : MonoBehaviour
 {
+    public Rigidbody2D birdRigidBody;
+
     void Start()
     {
         
@@ -11,6 +13,7 @@ public class BirdScript : MonoBehaviour
 
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Space))
+            birdRigidBody.velocity = Vector2.up * 10;
     }
 }

@@ -714,7 +714,7 @@ MonoBehaviour:
   cloudBottom: {fileID: 1677670987}
   playBtn: {fileID: 287368467}
   aboutBtn: {fileID: 2053114024}
-  cloudSpeed: 100
+  bestScore: {fileID: 764857559}
 --- !u!4 &982171507
 Transform:
   m_ObjectHideFlags: 0

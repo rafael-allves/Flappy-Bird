@@ -8,12 +8,17 @@ public class MenuScreen : MonoBehaviour
 {
     public Image cloudTop, cloudBottom;
     public Button playBtn, aboutBtn;
+    public Text bestScore;
 
     [SerializeField] private static float cloudSpeed = 100f;
     private const float ResetPosition = 1345f;
+
+    private int loadBestScore() { return PlayerPrefs.GetInt("BestScore", 0); }
     
     void Start()
     {
+        bestScore.text = "Best Score: " + loadBestScore().ToString();
+
         if (cloudTop == null || cloudBottom == null)
             Debug.LogError("Cloud objects not found. Make sure your tags are set correctly.");
 

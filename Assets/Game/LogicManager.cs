@@ -33,8 +33,17 @@ public class LogicManager : MonoBehaviour
         scoreText.text = playerScore.ToString();
     }
 
+    private void saveBestScore()
+    {
+        int savedScore = PlayerPrefs.GetInt("BestScore", 0);
+        int score = playerScore > savedScore ? playerScore : savedScore;
+        PlayerPrefs.SetInt("BestScore", score);
+        PlayerPrefs.Save();
+    }
+
     public void gameOver()
     {
+        saveBestScore();
         isGameOver = true;
         gameOverScreen.SetActive(true);
     }

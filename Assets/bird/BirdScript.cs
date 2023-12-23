@@ -7,7 +7,7 @@ public class BirdScript : MonoBehaviour
     public Rigidbody2D birdRigidBody;
     public float jumpForce = 10;
     private LogicManager logic;
-    private bool isRotating = false; // To check if rotation is in progress
+    private bool isRotating = false;
 
     void Start()
     {

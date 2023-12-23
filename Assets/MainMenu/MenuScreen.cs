@@ -9,7 +9,7 @@ public class MenuScreen : MonoBehaviour
     public Image cloudTop, cloudBottom;
     public Button playBtn, aboutBtn;
 
-    [SerializeField] private float cloudSpeed = 100f;
+    [SerializeField] private static float cloudSpeed = 100f;
     private const float ResetPosition = 1345f;
     
     void Start()
@@ -32,12 +32,14 @@ public class MenuScreen : MonoBehaviour
 
     void Update()
     {
-        MoveCloud(cloudTop);
-        MoveCloud(cloudBottom);
+        moveCloud(cloudTop);
+        moveCloud(cloudBottom);
     }
 
-    private void MoveCloud(Image cloud)
+    public static void moveCloud(Image cloud)
     {
+        if (cloud == null) return;
+
         float cloudWidth = cloud.GetComponent<RectTransform>().rect.width;
         
         Vector3 position = cloud.transform.position;
@@ -45,10 +47,8 @@ public class MenuScreen : MonoBehaviour
         if (position.x <= -ResetPosition)
             position.x = ResetPosition + cloudWidth;
 
-        Debug.Log(cloud.name + " position: " + position.x);
         cloud.transform.position = position;
     }
-
     public void startGame()
     {
         SceneManager.LoadScene("Game");

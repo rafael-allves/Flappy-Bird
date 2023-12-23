@@ -7,6 +7,7 @@ TagManager:
   - Logic
   - menu_cloud_top
   - menu_cloud_bottom
+  - Menu
   layers:
   - Default
   - TransparentFX

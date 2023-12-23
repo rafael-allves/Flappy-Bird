@@ -9,7 +9,22 @@ public class LogicManager : MonoBehaviour
     public bool isGameOver = false;
     public int playerScore = 0;
     public Text scoreText;
+    public Image cloud;
+    public Button menuBtn;
     public GameObject gameOverScreen;
+
+    void Start()
+    {
+        if (menuBtn != null)
+            menuBtn.onClick.AddListener(openMenu);
+        else
+            Debug.LogError("Play button not assigned.");
+    }
+
+    void Update()
+    {
+        MenuScreen.moveCloud(cloud);
+    }
 
     [ContextMenu("Increase Score")]
     public void addScore()
@@ -27,5 +42,10 @@ public class LogicManager : MonoBehaviour
     public void restartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void openMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
